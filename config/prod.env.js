@@ -5,7 +5,7 @@ module.exports = {
   FIREBASE_STORAGE_BUCKET: '"tracksgame-211220.appspot.com"',
   GOOGLE_MAP_API_KEY: '"AIzaSyDo7xfcRgmf05fOijcTn51TJt31j8e7VjM"',
   DEBUG: true,
-  LOG_LEVEL: 1,
+  LOG_LEVEL: 0,
   FIREBASE_ENV: '"dev"',
   STORAGE_ENV: '"dev"' // 'dev' for firebase | 'loc' for static
 }

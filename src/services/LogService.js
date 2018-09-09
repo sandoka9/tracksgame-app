@@ -11,25 +11,32 @@ const tgLogger = {
     }
     return true
   },
+  debug: function (message) {
+    if (!this.isDebbugActive() || process.env.LOG_LEVEL > 0) {
+      return '' // Do nothing
+    }
+    console.debug('messDebug', message)
+    this.log('debug', message)
+  },
   info: function (message) {
     if (!this.isDebbugActive() || process.env.LOG_LEVEL > 1) {
       return '' // Do nothing
     }
-    console.log('messInfo', message)
+    console.info('messInfo', message)
     this.log('info', message)
   },
   warn: function (message) {
     if (!this.isDebbugActive() || process.env.LOG_LEVEL > 2) {
       return '' // Do nothing
     }
-    console.log('messWarn', message)
+    console.warn('messWarn', message)
     this.log('warn', message)
   },
   error: function (message) {
     if (!this.isDebbugActive() || process.env.LOG_LEVEL > 3) {
       return '' // Do nothing
     }
-    console.log('messError', message)
+    console.error('messError', message)
     this.log('erro', message)
   },
   critical: function (message) {

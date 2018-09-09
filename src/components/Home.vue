@@ -56,12 +56,14 @@ export default {
     fetchData: function () {
       // Add local storage json
       var that = this
-      GameRepository.getGame('index').then(data => {
-        // console.debug(data)
-        that.game = data.game
-        localStorage.index = JSON.stringify(that.game)
-      })
-        .catch(error => console.error('toto : ' + error))
+      window.tgLogger.debug('Retrieving Games...')
+      GameRepository.getGames()
+        .then(data => {
+          window.tgLogger.debug(data)
+          that.game = data.games
+          localStorage.index = JSON.stringify(that.game)
+        })
+        .catch(error => window.tgLogger.error('Retrieving Games failed : ' + error))
     }
   }
 }

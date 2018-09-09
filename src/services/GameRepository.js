@@ -163,8 +163,20 @@ GameRepository.prototype.getGame = function getGame (tgId) {
   })
 }
 
+GameRepository.prototype.getGames = function getGames (filters = null) {
+  var envPath = this.env === 'prd' ? this.env : this.env + '/'
+  var jsonPath = envPath + 'tg/index/public/tgame.json'
+  // get a reference to the desired tracksgame
+  var storageRef = this.storage.ref()
+  var jsonGamesRef = storageRef.child(jsonPath)
+  var that = this
+  return jsonGamesRef.getDownloadURL()
+    .then(url => that.getJSON(url)
+    )
+}
+
 GameRepository.prototype.preLoadGameResources = function getGame (tgId) {
-  window.tgLogger.info('Preloading resources for game ' + tgId)
+  window.tgLogger.debug('Preloading resources for game ' + tgId)
   var that = this
   this.getTgDefUrl(tgId)
     .then(url => that.getJSON(url))
