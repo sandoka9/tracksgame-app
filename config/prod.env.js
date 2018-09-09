@@ -7,5 +7,5 @@ module.exports = {
   DEBUG: true,
   LOG_LEVEL: 1,
   FIREBASE_ENV: '"dev"',
-  STORAGE_ENV: '"loc"' // 'dev' for firebase | 'loc' for static
+  STORAGE_ENV: '"dev"' // 'dev' for firebase | 'loc' for static
 }
