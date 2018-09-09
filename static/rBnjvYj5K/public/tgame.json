@@ -1,0 +1,178 @@
+{
+  "title": "Vol au Louvre",
+  "description": "",
+  "color": "#CEFF33",
+  "clues":{
+    "1": "19 juin 1939",
+    "2": "Serge Bogoussiavsky",
+    "3": "L'indifférent",
+    "4": "Antoine Watteau"
+  },
+  "cluesFound": {},
+  "enigmaType": "response",
+  "questions": [
+    {
+      "type": "intro",
+      "title":"Bienvenue",
+      "shortDescription":"Es-tu prêt à découvrir une des plus  grandes affaire de vol du musée du Louvre ?",
+      "stepDescription": "Il te faudra faire preuve d'ingéniosité et bien observer les lieux pour résoudre les énigmes et découvrir le fin mot de l'histoire.",
+      "info": "Si tu es d'accord active la geoloc de ton smartphone et c'est parti !",
+      "classe": "fa fa-angle-right"
+    },
+    {
+      "type": "map-in",
+      "title": "Etape 1",
+      "shortDescription": "",
+      "stepDescription": "Rendez-vous à l'aile Sully, c'est par là que notre voleur est entré le 19 juin 1939 afin d'accomplir son crime.",
+      "info": "Direction l'aile Sully, 2ème étage, salle 36",
+      "classe": "fas fa-map-marked-alt"
+    },
+    {
+      "type": "map",
+      "title": "Carte",
+      "shortDescription": "",
+      "stepDescription": "",
+      "info": "",
+      "classe": "fa fa-angle-right",
+      "winMsg": "",
+      "errorMsg": "",
+      "indice": "",
+      "lat": 48.861088,
+      "lng": 2.337513,
+      "puzzleImage":""
+    },
+    {
+      "type": "qcm",
+      "title": "Etape 2",
+      "shortDescription": "#Question à choix multiples",
+      "stepDescription": "Nous sommes en plein coeur du style rococo, au milieu des années romantiques et des scènes idéalistes du 17e siecle. L'artiste est passionné par les fêtes galantes, les costumes des dames et le théatre italien, en particulier la Commedia dell arte.",
+      "info": "De qui s'agit-il ?",
+      "qcm":[
+        {"name": "Antoine", "surname": "Watteau"},
+        {"name": "François", "surname": "Boucher"},
+        {"name": "Jean-Honoré", "surname": "Fragonnard"}
+      ],
+      "classe": "fa fa-angle-right",
+      "winMsg": "Et oui, il s'agit de Watteau, ses contemporains Boucher et Fragonnard sont plus intéressés par les scènes de divinité comme Diane sortant du bain pour Boucher ou des scènes familiales comme le lecteur pour Fragonnard. Voici ton 1er indice: ",
+      "errorMsg": [
+        "Non, retente ta chance !",
+        "Non, attention, C'est ta dernière chance !",
+        "Perdu. Passe à l'étape suivante ! Le jeu continu, il y a encore plein d'indices à découvrir."
+      ],
+      "indice": "4",
+      "QResponse": "Watteau",
+      "response": ""
+    },
+    {
+      "type": "puzzle",
+      "title": "Etape 3",
+      "shortDescription": "#Puzzle",
+      "stepDescription": "Tu sais, le musée du Louvre n'a pas toujours été ainsi. Essaie de replacer les pièces du puzzle dans le bon ordre :",
+      "info": "",
+      "classe": "fa fa-arrow-right",
+      "winMsg": "Voici ton nouvel indice: ",
+      "errorMsg": [
+        "Non, essaie encore une fois"
+        ],
+      "indice": 3,
+      "classe": "fa fa-angle-right",
+      "lat":"",
+      "long":"",
+      "puzzleImage":[
+        {"image": "Louvre-1.png", "order": "1"},
+        {"image": "Louvre-5.png", "order": "5"},
+        {"image": "Louvre-3.png", "order": "3"},
+        {"image": "Louvre-9.png", "order": "9"},
+        {"image": "Louvre-4.png", "order": "4"},
+        {"image": "Louvre-7.png", "order": "7"},
+        {"image": "Louvre-2.png", "order": "2"},
+        {"image": "Louvre-6.png", "order": "6"},
+        {"image": "Louvre-8.png", "order": "8"}
+      ]
+    },
+    {
+      "type": "audio",
+      "title": "Etape 4",
+      "shortDescription": "#Listen",
+      "stepDescription": "Dirige toi dans la salle suivante. C'est ici que l'on a vu le voleur pour la dernière fois. Il a laissé des indices ses intentions. Ecoute bien",
+      "info": "",
+      "src": "recording-01.mp3",
+      "classe": "fa fa-angle-right",
+      "winMsg": "Voici ton nouvel indice: ",
+      "errorMsg": [
+        "Petit indice supplémentaire, j'adore les clairs de lune...",
+        "Non toujours pas."
+      ],
+      "indice": 2,
+      "QResponse": "pierrot",
+      "response": ""
+    },
+    {
+      "type": "enigme",
+      "title": "Etape 5",
+      "shortDescription": "#Le dénouement",
+      "stepDescription": "Es-tu en mesure de percer le mystère ? Sers toi des indices pour compléter le message ci-dessous",
+      "info": [
+        {"text": "Le" , "indice":"3"},
+        {"text": "juin" , "indice":"2"},
+        {"text": "alias Bog dérobait " , "indice":"1"},
+        {"text": "d'" , "indice":"4"}
+      ],
+      "classe": "fa fa-check",
+      "winMsg": "Félicitation ! Tu as résolue l'énigme",
+      "errorMsg": "",
+      "indice": "",
+      "lat":"",
+      "long":"",
+      "puzzleImage":"",
+      "QResponse": "res",
+      "response": ""
+    },
+    {
+      "type": "final",
+      "title": "Etape 5",
+      "shortDescription": "#Le dénouement",
+      "stepDescription": "The End",
+      "info": "",
+      "classe": "",
+      "winMsg": "",
+      "errorMsg": "",
+      "indice": "",
+      "lat":"",
+      "long":"",
+      "puzzleImage":""
+    },
+    {
+      "type": "qrmess",
+      "title": "Etape 6",
+      "shortDescription": "#QR Code",
+      "stepDescription": "Description QR Code",
+      "info": "Qui suis-je",
+      "classe": "fa fa-angle-right",
+      "winMsg": "Voici ton nouvel indice",
+      "errorMsg": "",
+      "indice": "1",
+      "lat":"",
+      "long":"",
+      "puzzleImage":"",
+      "qrCode": "Texte QR Code",
+      "QResponse": "res",
+      "response": ""
+    },
+    {
+      "type": "video",
+      "title": "Etape 7",
+      "shortDescription": "#Video Short Desc",
+      "stepDescription": "Description Video",
+      "info": "Qui suis-je",
+      "classe": "fa fa-angle-right",
+      "winMsg": "Voici ton nouvel indice",
+      "errorMsg": "",
+      "indice": "",
+      "src":"MOV_1109.mp4",
+      "poster":"DSC_1110.png",
+      "QResponse": "res",
+      "response": ""
+    }
+  ]
+}

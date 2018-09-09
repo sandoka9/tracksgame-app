@@ -1,0 +1,227 @@
+{
+  "title": "Le trésor de Montmartre",
+  "description": "",
+  "color": "#CEFF33",
+  "clues":{
+    "1": "cat-1.png",
+    "2": "cat-2.png",
+    "3": "cat-3.png",
+    "4": "cat-4.png",
+    "5": "cat-5.png",
+    "6": "cat-6.png",
+    "7": "cat-7.png",
+    "8": "cat-8.png",
+    "9": "cat-9.png"
+  },
+  "cluesFound": {},
+  "enigmaType": "map",
+  "questions": [
+    {
+      "type": "questres",
+      "title":"Parfums",
+      "shortDescription":"Le jeu des saveurs",
+      "stepDescription": "Rendez-vous sous les arches. Vous allez devoir découvrir quelle saveur se cache dans ces bonbons, tu as 3 chances",
+      "info": "Bonne dégustation!",
+      "classe": "fa fa-angle-right",
+      "winMsg": "Bravo! Voici ton indice",
+      "errorMsg": [
+        "Non, retente ta chance !",
+        "Non, attention, C'est ta dernière chance !",
+        "Perdu. Passe à l'étape suivante ! Le jeu continu, il y a encore plein d'indices à découvrir."
+      ],
+      "indice": "5",
+      "response": "",
+      "stepResponse": "Xxx"
+    },
+    {
+      "type": "qrcode",
+      "title": "Enigme",
+      "shortDescription": "Observation",
+      "stepDescription": "Direction le grand chêne. La boîte renferme l'indice, trouve le code du cadenas pour le découvrir, pour cela aide toi du schéma ci-dessous. Tu dois bien observer les alentours",
+      "stepImg": "qrcode.png",
+      "info": "Scanne le QR code pour obtenir ton indice",
+      "classe": "fa fa-angle-right",
+      "winMsg": "Voici ton nouvel indice",
+      "errorMsg": "",
+      "indice": "1",
+      "response": "",
+      "stepResponse": "Xxx"
+    },
+    {
+      "type": "questres",
+      "title": "Devinette",
+      "shortDescription":"Devinette shortDescription",
+      "stepDescription": "Devinette stepDescription",
+      "info": "Info",
+      "classe": "fa fa-angle-right",
+      "winMsg": "Bravo! Voici ton indice",
+      "errorMsg": [
+        "Non, retente ta chance !",
+        "Non, attention, C'est ta dernière chance !",
+        "Perdu. Passe à l'étape suivante ! Le jeu continu, il y a encore plein d'indices à découvrir."
+      ],
+      "indice": "7",
+      "response": "",
+      "stepResponse": "Xxx"
+    },
+    {
+      "type": "qrcode",
+      "title": "Défis sportif",
+      "shortDescription": "Observation",
+      "stepDescription": "Dirigez-vous vers les grandes marches. Une carte sur laquelle se trouve le nouvel indice y est dissimulée.",
+      "stepImg": "",
+      "info": "Scanne le QR code pour obtenir ton indice",
+      "classe": "fa fa-angle-right",
+      "winMsg": "Voici ton nouvel indice",
+      "errorMsg": "",
+      "indice": "2",
+      "response": "",
+      "stepResponse": "Xxx"
+    },
+    {
+      "type": "questres",
+      "title":"Logique",
+      "shortDescription":"Elémentaire mon cher Watson",
+      "stepDescription": "Réflechissons un petit peu, ceci est un message codé, décrypte le pour obtenir le nouvel indice. Tu as 3 chances",
+      "stepImg": "messcode.png",
+      "info": "",
+      "classe": "fa fa-angle-right",
+      "winMsg": "Bravo! Voici ton indice",
+      "errorMsg": [
+        "Non, retente ta chance !",
+        "Non, attention, C'est ta dernière chance !",
+        "Perdu. Passe à l'étape suivante ! Le jeu continu, il y a encore plein d'indices à découvrir."
+      ],
+      "indice": "4",
+      "response": "",
+      "stepResponse": "Xxx"
+    },
+    {
+      "type": "qcmalea",
+      "title": "Etape 3",
+      "shortDescription": "#Question de chance",
+      "stepDescription": "Tire à pile ou face",
+      "info": "De qui s'agit-il ?",
+      "qcm":[
+        {"key": 1, "name": "pile"},
+        {"key": 2, "name": "face"}
+      ],
+      "classe": "fa fa-angle-right",
+      "winMsg": "Bravo! Quelle chance, voici ton indice",
+      "errorMsg": [
+        "Non, retente ta chance !",
+        "Non, attention, C'est ta dernière chance !",
+        "Perdu. Passe à l'étape suivante ! Le jeu continu, il y a encore plein d'indices à découvrir."
+      ],
+      "indice": "6",
+      "response": "",
+      "stepResponse": "Xxx"
+    },
+    {
+      "type": "questres",
+      "title":"Culture générale",
+      "shortDescription":"Cinéma",
+      "stepDescription": "Dans quel film ...",
+      "stepImg": "",
+      "info": "",
+      "classe": "fa fa-angle-right",
+      "winMsg": "Bravo! Voici ton indice",
+      "errorMsg": [
+        "Non, retente ta chance !",
+        "Non, attention, C'est ta dernière chance !",
+        "Perdu. Passe à l'étape suivante ! Le jeu continu, il y a encore plein d'indices à découvrir."
+      ],
+      "indice": "8",
+      "response": "",
+      "stepResponse": "Xxx"
+    },
+    {
+      "type": "qrcode",
+      "title": "Défis",
+      "shortDescription": "Observation",
+      "stepDescription": "Dans le square se cache .... Trouve le, il te donnera une carte sur laquelle se trouve ton indice",
+      "stepImg": "",
+      "info": "Scanne le QR code pour obtenir ton indice",
+      "classe": "fa fa-angle-right",
+      "winMsg": "Voici ton nouvel indice",
+      "errorMsg": "",
+      "indice": "9",
+      "response": "",
+      "stepResponse": "Xxx"
+    },
+    {
+      "type": "audio",
+      "title": "Qui suis-je?",
+      "shortDescription": "#Listen",
+      "stepDescription": "Ecoute bien et devine qui est le personnage",
+      "info": "",
+      "src": "recording-01.mp3",
+      "classe": "fa fa-angle-right",
+      "winMsg": "Voici ton nouvel indice: ",
+      "errorMsg": [
+        "Petit indice supplémentaire, le square porte mon nom",
+        "Non toujours pas."
+      ],
+      "indice": 3,
+      "response": "",
+      "stepResponse": "Xxx"
+    },
+    {
+      "type": "enigmeMap",
+      "title": "Etape 5",
+      "shortDescription": "#Le dénouement",
+      "stepDescription": "Es-tu en mesure de percer le mystère ? Sers toi des indices pour compléter le message ci-dessous",
+      "info": [
+        {"text": "" , "indice":"1"},
+        {"text": "" , "indice":"2"},
+        {"text": "" , "indice":"3"},
+        {"text": "" , "indice":"4"},
+        {"text": "" , "indice":"5"},
+        {"text": "" , "indice":"6"},
+        {"text": "" , "indice":"7"},
+        {"text": "" , "indice":"8"},
+        {"text": "" , "indice":"9"}
+      ],
+      "classe": "fa fa-check",
+      "winMsg": "Félicitation ! La clé n'est plus très loin. Bon courage !",
+      "errorMsg": "",
+      "indice": "",
+      "lat":"",
+      "long":"",
+      "puzzleImage":"",
+      "QResponse": "",
+      "response": "",
+      "nextText": "Partage tes indices"
+    },
+    {
+      "type": "clues",
+      "title": "Etape 6",
+      "shortDescription": "#Share Clues",
+      "stepDescription": "Scanne le QR Code de tes co-équipers pour obtenir de nouveaux indices",
+      "info": "Et voici le QR code pour partager tes indices :",
+      "classe": "fa fa-check",
+      "winMsg": "Retourne maintenant à la résolution de l'énigme",
+      "errorMsg": "",
+      "indice": "",
+      "lat":"",
+      "long":"",
+      "puzzleImage":"",
+      "QResponse": "",
+      "response": ""
+    },
+    {
+      "type": "final",
+      "title": "Etape 5",
+      "shortDescription": "#Le dénouement",
+      "stepDescription": "Félicitation ! La clé n'est plus très loin. Bon courage !",
+      "info": "",
+      "classe": "",
+      "winMsg": "",
+      "errorMsg": "",
+      "indice": "",
+      "lat":"",
+      "long":"",
+      "puzzleImage":""
+    }
+  ]
+}
