@@ -2,6 +2,8 @@
 var firebase = require('firebase/app')
 require('firebase/storage')
 
+var ImgCache = require('@chrisben/imgcache.js')
+
 // var _ = require('lodash')
 
 var config = {
@@ -40,9 +42,21 @@ GameRepository.prototype.getLocalResourceUrl = function getLocalResourceUrl (tgI
 }
 
 GameRepository.prototype.getLocalTgDef = function getLocalTgDef (tgId) {
+  return GameRepository.prototype.getLocalBlobUrl(tgId + '/public/' + GAME_DEF_FILE)
+  /*
   return new Promise((resolve) => {
     var host = this.getRootLocalUrl()
     var tgDefUrl = host + '/' + tgId + '/public/' + GAME_DEF_FILE
+    resolve(tgDefUrl)
+  })
+  */
+}
+
+GameRepository.prototype.getLocalBlobUrl = function getLocalBlobUrl (path) {
+  return new Promise((resolve) => {
+    // var host = this.getRootLocalUrl()
+    // var tgDefUrl = host + '/' + path
+    let tgDefUrl = path
     resolve(tgDefUrl)
   })
 }
@@ -55,6 +69,19 @@ GameRepository.prototype.getResourceUrl = function getResourceUrl (tgId, url) {
     var downloadUrl = tgPublicRef.child(url).getDownloadURL()
     return downloadUrl
   }
+}
+
+GameRepository.prototype.getGameResourceUrl = function getResourceUrl (tgId, url) {
+  return this.getResourceUrl(tgId, url)
+    .then(function (url) {
+      return new Promise(function (resolve) {
+        let entry = { tgId: tgId, url: url }
+        resolve(entry)
+      })
+    })
+    .catch(function (error) {
+      window.tgLogger.error(error)
+    })
 }
 
 GameRepository.prototype.getResourcesToRewrite = function getResourcesToRewrite (json) {
@@ -88,7 +115,6 @@ GameRepository.prototype.resolveUrl = function resolveUrl (tgId, url) {
       })
     })
     .catch(function (error) {
-      console.error(error)
       window.tgLogger.error(error)
     })
 }
@@ -150,6 +176,17 @@ GameRepository.prototype.getTgDefUrl = function getTgDefUrl (tgId) {
   }
 }
 
+GameRepository.prototype.getBlobDefUrl = function getBlobDefUrl (path) {
+  if (this.storage_env === 'loc') {
+    return this.getLocalBlobUrl(path)
+  } else {
+    var storageRef = this.storage.ref()
+    var blobRef = storageRef.child(path)
+    var blobDownloadUrl = blobRef.getDownloadURL()
+    return blobDownloadUrl
+  }
+}
+
 GameRepository.prototype.getGame = function getGame (tgId) {
   return new Promise((resolve, reject) => {
     console.debug('Fetching data for game ' + tgId)
@@ -164,15 +201,16 @@ GameRepository.prototype.getGame = function getGame (tgId) {
 }
 
 GameRepository.prototype.getGames = function getGames (filters = null) {
-  var envPath = this.env === 'prd' ? this.env : this.env + '/'
-  var jsonPath = envPath + 'tg/index/public/tgame.json'
-  // get a reference to the desired tracksgame
-  var storageRef = this.storage.ref()
-  var jsonGamesRef = storageRef.child(jsonPath)
+  let jsonPath = 'index/public/tgame.json'
+  if (this.storage_env === 'loc') {
+    jsonPath = 'index/public/tgame.json'
+  } else {
+    var envPath = this.env === 'prd' ? this.env : this.env + '/'
+    jsonPath = envPath + 'tg/index/public/tgame.json'
+  }
   var that = this
-  return jsonGamesRef.getDownloadURL()
-    .then(url => that.getJSON(url)
-    )
+  return this.getBlobDefUrl(jsonPath)
+    .then(url => that.getJSON(url))
 }
 
 GameRepository.prototype.preLoadGameResources = function getGame (tgId) {
@@ -189,10 +227,16 @@ GameRepository.prototype.preLoadGameResources = function getGame (tgId) {
       for (var r of resources) {
         if (r.includes('mp3') > 0) {
           window.tgLogger.info('Preloading media ' + r)
-          preloadMedia(r)
+          ImgCache.cacheFile(r, function (url) {
+            window.tgLogger.info('Resource ' + r + ' put in cache' + url)
+          }, function () {
+            window.tgLogger.error('Error putting resource in cache')
+          })
+          // preloadMedia(r)
         } else {
           window.tgLogger.info('Preloading image ' + r)
-          new Image().src = r
+          ImgCache.cacheFile(r)
+          // new Image().src = r
         }
       }
     })
@@ -210,6 +254,7 @@ GameRepository.prototype.getGameResources = function getGame (tgId) {
     })
 }
 
+/*
 function preloadMedia (mediaUrl) {
   var req = new XMLHttpRequest()
   req.open('GET', mediaUrl, true)
@@ -235,5 +280,6 @@ function preloadMedia (mediaUrl) {
   }
   req.send()
 }
+*/
 
 export default new GameRepository(firebase.app().storage())

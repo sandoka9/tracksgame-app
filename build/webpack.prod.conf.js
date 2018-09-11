@@ -100,6 +100,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       minify: true,
       stripPrefix: 'dist/',
       // cache resources from google firebase
+      /*
       runtimeCaching: [{
         urlPattern: /^https:\/\/firebasestorage\.googleapis\.com/,
         handler: 'cacheFirst'
@@ -108,6 +109,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         urlPattern: /^https:\/\/maps\.googleapis\.com/,
         handler: 'cacheFirst'
       }]
+      */
     }),
   ]
 })

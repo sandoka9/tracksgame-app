@@ -1,7 +1,7 @@
 <template>
   <div class="home-content">
     <div class="content-game" v-for="item in game" :key="item.id">
-      <router-link :to="{ name: 'DetailsGame', params: { gameId: item.id } }"><img :src="getImgPath(item.id)" /></router-link>
+      <router-link :to="{ name: 'DetailsGame', params: { gameId: item.id } }"><img :src="item.img" /></router-link>
       <span class="content-game-title"> {{item.title}} </span>
     </div>
   </div>
@@ -49,9 +49,12 @@ export default {
     // a computed getter
   },
   methods: {
-    getImgPath: function (tgIg) {
+    getImgPath: function (tgId) {
       // `this` points to the vm instance
-      return './' + tgIg + '/public/home/img_S.jpg'
+      let imgUrl = GameRepository.getResourceUrl(tgId)
+      window.tgLogger.debug('Setting image url : ' + imgUrl)
+      return imgUrl
+      // return './' + tgIg + '/public/home/img_S.jpg'
     },
     fetchData: function () {
       // Add local storage json
@@ -60,6 +63,9 @@ export default {
       GameRepository.getGames()
         .then(data => {
           window.tgLogger.debug(data)
+          data.games.forEach(game => {
+            game['img'] = game['id'] + '/public/home/img_S.jpg'
+          })
           that.game = data.games
           localStorage.index = JSON.stringify(that.game)
         })

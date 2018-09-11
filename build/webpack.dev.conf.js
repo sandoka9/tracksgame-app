@@ -37,6 +37,7 @@ module.exports = merge(baseWebpackConfig, {
     publicPath: config.dev.assetsPublicPath,
     proxy: config.dev.proxyTable,
     quiet: true, // necessary for FriendlyErrorsPlugin
+    watch: true,
     watchOptions: {
       poll: 1000,
     }

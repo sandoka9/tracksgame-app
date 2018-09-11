@@ -10,8 +10,10 @@
           <i class="fa fa-play"></i>
         </router-link>
       </button>
-      <a href=""><img v-bind:src="getImgPath(game.id)" />
-      <router-link :to="{ name: 'Steps', params: { gameId: game.id } }"></router-link>
+      <a href="">
+      <router-link :to="{ name: 'Steps', params: { gameId: game.id } }">
+        <img v-bind:src="getImgPath(game.id)" />
+      </router-link>
       </a>
       <span class="details-content-title"> {{game.title}} </span>
       <span class="details-content-description"> {{game.description}} </span>
