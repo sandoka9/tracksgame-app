@@ -1,10 +1,12 @@
 <template>
   <div class="content">
-  <img id="imageId" :src="targetSrc" />
+  <img ref="img" :src="targetSrc" />
   </div>
 </template>
 
 <script>
+import ImgCache from '@chrisben/imgcache.js'
+
 export default {
   name: 'cachedImage',
   props: {
@@ -16,24 +18,27 @@ export default {
   },
   /* eslint-disable */
   created () {
-    useCachedImage()
   },
   mounted () {
+    this.imgElt = this.$refs.img
+    this.useCachedImage()
   },
   /* eslint-enable */
   methods: {
-    useCachedImage: function() {
-      let target = document.getElementById('imageId')
+    useCachedImage: function () {
       // ImgCache.isCached(target.attr('src'), function(path, success) {
-      ImgCache.isCached(this.targetSrc, function(path, success) {
+      let imgElt = this.imgElt
+      let that = this
+      ImgCache.isCached(this.targetSrc, function (path, success) {
         if (success) {
-          // already cached
-          ImgCache.useCachedFile(target);
+          window.tgLogger.debug('Image found in cache : ' + path)
+          // that.targetSrc = ImgCache.getCachedFileUrl(that.targetSrc)
+          ImgCache.useCachedFile(imgElt)
         } else {
-          // not there, need to cache the image
-          // ImgCache.cacheFile(target.attr('src'), function () {
-          ImgCache.cacheFile(this.targetSrc, function () {
-            ImgCache.useCachedFile(target);
+          window.tgLogger.error('Image not found in cache : ' + that.targetSrc)
+          ImgCache.cacheFile(that.targetSrc, function () {
+            // that.targetSrc = ImgCache.getCachedFileUrl(that.targetSrc)
+            ImgCache.useCachedFile(imgElt)
           })
         }
       })

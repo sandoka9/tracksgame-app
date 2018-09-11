@@ -95,7 +95,12 @@
       <div class="result-ok win-msg" v-if="win == true">
         {{questions[stepIndex].winMsg}}
         <div class="result-ok-clues" v-if="enigmaType == 'response' && questions[stepIndex].type != 'enigme'">{{clues[cluesKey]}}</div>
-        <div class="result-ok-cluesMap" v-if="enigmaType == 'map'"><img :src="clues[cluesKey]" /></div>
+        <div class="result-ok-cluesMap" v-if="enigmaType == 'map'">
+          <!-- img :src="clues[cluesKey]" / -->
+          <cachedImage
+            v-bind:targetSrc="clues[cluesKey]">
+          </cachedImage>
+        </div>
       </div>
     </div>
     <div class="arrow">
@@ -110,6 +115,7 @@
 
 <script>
 import baseCheckbox from './baseCheckbox.vue'
+import cachedImage from './cachedImage.vue'
 import draggable from 'vuedraggable'
 import TracksAudio from './TracksAudio.vue'
 import TracksClues from './TracksClues.vue'
@@ -176,6 +182,7 @@ export default {
   components: {
     draggable,
     baseCheckbox,
+    cachedImage,
     TracksAudio,
     TracksClues,
     TracksEnigme,
