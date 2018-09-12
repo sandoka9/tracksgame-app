@@ -5,13 +5,19 @@
     <div class="content-description">
       <span> Début : </span><span class="content-description-info">{{startDate}}</span>
       <span> Etapes réussies: </span><span class="content-description-info"> {{stepDoneNb}}/{{stepIndexMax}} </span>
-      <span> Indices obtenus </span><span class="content-description-info" v-for="item in cluesFound" :key="item" v-if="enigmaType === 'map'"><img :src="item" /></span>
+      <span> Indices obtenus </span><span class="content-description-info" v-for="item in cluesFound" :key="item" v-if="enigmaType === 'map'">
+        <!-- img :src="item" / -->
+        <cachedImage
+          v-bind:targetSrc="item">
+        </cachedImage>
+      </span>
     </div>
     <div class="content-game"></div>
   </div>
 </template>
 
 <script>
+import cachedImage from './cachedImage.vue'
 
 export default {
   name: 'Info',
@@ -35,10 +41,13 @@ export default {
     this.stepIndexMax = localStorage.stepIndexMax
     // To show clues found
     this.cluesFound = JSON.parse(localStorage.cluesFound)
-    // if it is map or question enigme type 
+    // if it is map or question enigme type
     this.enigmaType = localStorage.enigmaType
   },
   mounted () {
+  },
+  components: {
+    cachedImage
   },
   /* eslint-enable */
   methods: {

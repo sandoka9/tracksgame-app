@@ -1,7 +1,10 @@
 <!-- Not used -->
 <template>
   <div class="login-container">
-    <img src="img/login.png" />
+    <!-- img src="img/login.png" / -->
+    <cachedImage
+      v-bind:targetSrc="img/login.png">
+    </cachedImage>
     <form>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Pseudo" aria-describedby="basic-addon1">
@@ -21,6 +24,7 @@
 </template>
 
 <script>
+import cachedImage from './cachedImage.vue'
 
 export default {
   name: 'Login',
@@ -30,6 +34,9 @@ export default {
       fbGameId: '',
       defaultGame: 'rBnjvYj5K'
     }
+  },
+  components: {
+    cachedImage
   },
   methods: {
     getId: function () {

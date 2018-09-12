@@ -4,7 +4,10 @@
     <div class="content-subtitle">{{content.shortDescription}}</div>
     <div class="content-description">{{content.stepDescription}}</div>
     <div class="content-game" v-for="item in content.info" :key="item.indice" >
-            <img :src="cluesFound[item.indice]" />
+      <!-- img :src="cluesFound[item.indice]" / -->
+      <cachedImage
+        v-bind:targetSrc="cluesFound[item.indice]">
+      </cachedImage>
     </div>
     <div  class="content-response"> <!--  v-if="stepIndex == 6 || stepIndex == 7 " -->
       <button type="button" class="content-response-button form-control"
@@ -16,6 +19,7 @@
 </template>
 
 <script>
+import cachedImage from './cachedImage.vue'
 
 export default {
   name: 'TracksEnigmeMap',
@@ -46,6 +50,9 @@ export default {
     this.cluesFound = JSON.parse(localStorage.cluesFound)
   },
   /* eslint-enable */
+  components: {
+    cachedImage
+  },
   methods: {
     isActive: function () {
       if (this.cluesKey !== '' && this.stepIndexEnd === false) {

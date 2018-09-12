@@ -3,7 +3,12 @@
     <div class="content-title">  {{content.title}} </div>
     <div class="content-subtitle">{{content.shortDescription}}</div>
     <div class="content-description">{{content.stepDescription}}</div>
-    <div class="content-img" v-if="content.stepImg !== ''">{{content.stepImg}}</div>
+    <div class="content-img" v-if="content.stepImg !== ''">
+      <!-- img :src="{{content.stepImg}}" / -->
+      <cachedImage
+        v-bind:targetSrc="content.stepImg">
+      </cachedImage>
+      </div>
     <div class="content-game">
       <QrcodeReader @decode="onDecode" @init="onInit" >
         <div class="decoded-content"></div>
@@ -27,6 +32,7 @@
 <script>
 import { QrcodeReader } from 'vue-qrcode-reader'
 import VueQr from 'vue-qr'
+import cachedImage from './cachedImage.vue'
 
 export default {
   name: 'TracksClues',
@@ -100,7 +106,8 @@ export default {
   },
   components: {
     QrcodeReader,
-    VueQr
+    VueQr,
+    cachedImage
   }
 }
 </script>

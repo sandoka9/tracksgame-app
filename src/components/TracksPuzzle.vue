@@ -9,7 +9,10 @@
           <draggable class="list-group-up" element="ul" v-model="content.puzzleImage" :options="dragOptions" :move="onMove">
             <transition-group name="no" tag="ul">
               <li class="randomImg" v-for="element in content.puzzleImage" :key="element.order" >
-                <img :src="element.image" />
+                <!-- img :src="element.image" / -->
+                <cachedImage
+                  v-bind:targetSrc="element.image">
+                </cachedImage>
               </li>
             </transition-group>
           </draggable>
@@ -18,7 +21,10 @@
           <draggable class="list-group" element="ul" v-model="puzzles" :options="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false">
             <transition-group type="transition" :name="'flip-list'">
               <li class="randomImg" v-for="item in puzzles" :key="item.order">
-                <img :src="item.image" />
+                <!-- img :src="item.image" / -->
+                <cachedImage
+                  v-bind:targetSrc="item.image">
+                </cachedImage>
               </li>
             </transition-group>
           </draggable>
@@ -29,6 +35,7 @@
 
 <script>
 import draggable from 'vuedraggable'
+import cachedImage from './cachedImage.vue'
 
 export default {
   name: 'TracksQcm',
@@ -81,7 +88,8 @@ export default {
     }
   },
   components: {
-    draggable
+    draggable,
+    cachedImage
   }
 }
 </script>

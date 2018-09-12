@@ -9,6 +9,7 @@
 
 <script>
 import GameRepository from '../services/GameRepository.js'
+import cachedImage from './cachedImage.vue'
 
 export default {
   name: 'Home',
@@ -47,6 +48,9 @@ export default {
   },
   computed: {
     // a computed getter
+  },
+  components: {
+    cachedImage
   },
   methods: {
     getImgPath: function (tgId) {

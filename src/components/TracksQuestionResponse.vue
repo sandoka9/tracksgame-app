@@ -4,7 +4,10 @@
     <div class="content-subtitle">{{content.shortDescription}}</div>
     <div class="content-description">{{content.stepDescription}}</div>
     <div class="content-img" v-if="content.stepImg !== ''">
-      <img v-bind:src="content.stepImg" />
+      <!-- img v-bind:src="content.stepImg" / -->
+      <cachedImage
+        v-bind:targetSrc="content.stepImg">
+      </cachedImage>
     </div>
     <div class="content-info">{{content.info}}</div>
     <div class="content-game">
@@ -16,6 +19,7 @@
 </template>
 
 <script>
+import cachedImage from './cachedImage.vue'
 
 export default {
   name: 'TracksQuestionResponse',
@@ -32,6 +36,9 @@ export default {
   },
   /* eslint-enable */
   methods: {
+  },
+  components: {
+    cachedImage
   },
   model: {
     event: 'change'
