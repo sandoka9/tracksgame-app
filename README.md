@@ -1,12 +1,13 @@
-# myvuetifyjs
+# Tracksgame
 
-> A Vuetify project running in Cordova
+> Tracksgame application running in Cordova
 
 ## Build Setup
 
 ``` bash
 # install dependencies
 npm install
+
 
 # serve with hot reload at localhost:8080
 npm run dev
@@ -26,18 +27,22 @@ npm run e2e
 # run all tests
 npm test
 
+# add respective platforms
+# cordova platform add android
+# cordova platform add ios
+# install platforms from config.xml
+cordova platform save
+# install plugins from config.xml
+cordova plugins save
+
 # build for production and cordova build.
 npm run cordova-build
 
 # build for production and serve the app through the browser - no hot reload.
 npm run browser
 
-# add respective platforms
-cordova platform add android
-cordova platform add ios
-
 # build for production and serve the app on an iOS device
-npm run ios
+#npm run ios
 
 # build for production and serve the app on an android device (won't serve on a virtual device)
 npm run android

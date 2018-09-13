@@ -68,7 +68,7 @@ export default {
         .then(data => {
           window.tgLogger.debug(data)
           data.games.forEach(game => {
-            game['img'] = game['id'] + '/public/home/img_S.jpg'
+            game['img'] = './' + game['id'] + '/public/home/img_S.jpg'
           })
           that.game = data.games
           localStorage.index = JSON.stringify(that.game)

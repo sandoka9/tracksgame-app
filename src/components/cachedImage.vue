@@ -1,7 +1,5 @@
 <template>
-  <div class="content">
   <img ref="img" :src="targetSrc" />
-  </div>
 </template>
 
 <script>
