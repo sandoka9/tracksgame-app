@@ -13,15 +13,11 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    // app
     {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
+      path: '/clues',
+      name: 'Clues',
+      component: Clues
     },
     {
       path: '/detailsGame/:gameId',
@@ -30,25 +26,38 @@ export default new Router({
       component: DetailsGame
     },
     {
-      path: '/steps/:gameId',
-      name: 'Steps',
-      props: true,
-      component: Steps
-    },
-    {
-      path: '/clues',
-      name: 'Clues',
-      component: Clues
-    },
-    {
       path: '/help',
       name: 'Help',
       component: Help
     },
     {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
       path: '/info',
       name: 'Info',
       component: Info
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },    
+    {
+      path: '/steps/:gameId',
+      name: 'Steps',
+      props: true,
+      component: Steps
     }
+    // site
+    /*
+    {
+      path: '/site',
+      name: 'Site',
+      component: Site
+    } 
+    */
   ]
 })
